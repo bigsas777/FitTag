@@ -9,7 +9,12 @@ import SwiftUI
 
 struct RecordingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Text("Sussato a vita")
+            }
+            .navigationTitle("Your Recordings")
+        }
     }
 }
 

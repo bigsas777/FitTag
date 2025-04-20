@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrainingModeView: View {
-    @State private var selezione = "Corsa"
+    @State private var selezione: ActivityType = .running
     @State private var startTime: Date?
     @State private var endTime: Date?
     
@@ -41,8 +41,8 @@ struct TrainingModeView: View {
                     Spacer()
                     
                     Picker("Seleziona un'attività", selection: $selezione) {
-                        ForEach(activities, id: \.self) { activity in
-                            Text(activity)
+                        ForEach(ActivityType.allCases, id: \.self) { activity in
+                            Text(activity.name).tag(activity)
                         }
                     }
                     .pickerStyle(.menu)
