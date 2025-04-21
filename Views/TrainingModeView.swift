@@ -18,6 +18,10 @@ struct TrainingModeView: View {
     @State private var isRecording = false
     @State private var showSaveDialog = false
     
+    @StateObject private var motionManager = MotionManager()
+    @StateObject private var firestoreManager = FirestoreManager()
+
+    
     let activities = ["Corsa", "Camminata", "Nuoto", "Ciclismo"]
     
     var startTimeStr: String {
@@ -36,7 +40,7 @@ struct TrainingModeView: View {
                 HStack {
                     Text("Attività:")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                     
                     Spacer()
                     
@@ -53,7 +57,7 @@ struct TrainingModeView: View {
                 HStack {
                     Text("Start time:")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                     Spacer()
                     Text(startTimeStr)
                 }
@@ -61,7 +65,7 @@ struct TrainingModeView: View {
                 HStack {
                     Text("End time:")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                     Spacer()
                     Text(endTimeStr)
                 }
@@ -97,18 +101,28 @@ struct TrainingModeView: View {
             } message: {
                 Text("Vuoi salvare questa attività?")
             }
+            .alert("Sensori non disponibili", isPresented: $motionManager.sensorsUnavailable) {
+                Button("OK", role: .cancel) { }
+            }
         }
     }
     
     func toggleRecording() {
-        isRecording.toggle()
-        
-        if isRecording {
+        if !isRecording {
+            isRecording.toggle()
+            motionManager.startUpdates()
+            if motionManager.sensorsUnavailable {
+                isRecording.toggle()
+                return // Non modifica la UI se i sensori non sono disponibili
+            }
             startTime = Date()
             buttonText = "Fine attività"
             buttonColor = .red
         } else {
+            isRecording.toggle()
+            motionManager.stopUpdates()
             endTime = Date()
+            
             buttonText = "Registra attività"
             buttonColor = .green
             showSaveDialog = true
@@ -130,7 +144,7 @@ struct TrainingModeView: View {
     func discardActivity() {
         startTime = nil
         endTime = nil
-        // Pulire dati accelerometro e giroscopio
+        motionManager.resetData()
     }
 }
 

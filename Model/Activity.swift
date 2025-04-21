@@ -8,8 +8,10 @@
 import Foundation
 
 struct Activity: Hashable, Codable, Identifiable {
-    var id: String
+    var id: String?
     var activityType: ActivityType
-    var startTimestamp: String
-    var endTimestamp: String
+    var startTime: Date
+    var endTime: Date
+    var accelerometerData: [Sample]
+    var gyroscopeData: [Sample]
 }
