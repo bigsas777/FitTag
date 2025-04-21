@@ -12,6 +12,7 @@ class FirestoreManager: ObservableObject {
     private let db = Firestore.firestore()
     
     @Published var savingError = false
+    @Published var fetchingError = false
     
     func saveActivity(_ activity: Activity) {
         var activityToSave = activity
@@ -23,6 +24,30 @@ class FirestoreManager: ObservableObject {
         } catch {
             savingError = true
         }
+    }
+    
+    func getActivities() async -> [ActivitySummary] {
+        var tempActivity: Activity
+        var summaries: [ActivitySummary] = []
+        
+        do {
+            let querySnapshot = try await db.collection("activities")
+                .order(by: "startTime", descending: false)
+                .getDocuments()
+            
+            for document in querySnapshot.documents {
+                tempActivity = try document.data(as: Activity.self)
+                summaries.append(createSummary(tempActivity))
+            }
+        } catch {
+            fetchingError = true
+        }
+        
+        return summaries
+    }
+    
+    func createSummary(_ activity: Activity) -> ActivitySummary {
+        return ActivitySummary(id: activity.id!, activityType: activity.activityType, startTime: activity.startTime, endTime: activity.endTime)
     }
 }
 

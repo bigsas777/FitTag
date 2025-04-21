@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct RecordingsView: View {
+    @StateObject private var firestoreManager = FirestoreManager()
+    
+    @State private var activitySummaries: [ActivitySummary] = []
+    
     var body: some View {
         NavigationStack {
-            List {
-                Text("Sussato a vita")
+            List(activitySummaries) { activitySummary in
+                ActivitySummaryView(activitySummary: activitySummary)
             }
             .navigationTitle("Your Recordings")
+            .onAppear {
+                Task {
+                    let summaries = await firestoreManager.getActivities()
+                    activitySummaries = summaries
+                }
+            }
+            .alert("Errore nel download delle tue registrazioni", isPresented: $firestoreManager.fetchingError) {
+                Button("OK", role: .cancel) { }
+            }
         }
     }
 }
