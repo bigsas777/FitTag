@@ -12,8 +12,8 @@ class MotionManager: ObservableObject {
     private let motionManager = CMMotionManager()
     private let updateInterval = 0.02 // 50 Hz
 
-    @Published var accelerometerData: [CMAccelerometerData] = []
-    @Published var gyroscopeData: [CMGyroData] = []
+    @Published var accelerometerData: [Sample] = []
+    @Published var gyroscopeData: [Sample] = []
     
     @Published var sensorsUnavailable = false
 
@@ -27,15 +27,25 @@ class MotionManager: ObservableObject {
         motionManager.gyroUpdateInterval = updateInterval
 
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, _ in
-            if let data = data {
-                self?.accelerometerData.append(data)
-            }
+            guard let self = self, let data = data else { return }
+            let sample = Sample(
+                timeStamp: Date(),
+                x: Float(data.acceleration.x),
+                y: Float(data.acceleration.y),
+                z: Float(data.acceleration.z)
+            )
+            self.accelerometerData.append(sample)
         }
 
         motionManager.startGyroUpdates(to: .main) { [weak self] data, _ in
-            if let data = data {
-                self?.gyroscopeData.append(data)
-            }
+            guard let self = self, let data = data else { return }
+            let sample = Sample(
+                timeStamp: Date(),
+                x: Float(data.rotationRate.x),
+                y: Float(data.rotationRate.y),
+                z: Float(data.rotationRate.z)
+            )
+            self.gyroscopeData.append(sample)
         }
     }
 

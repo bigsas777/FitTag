@@ -91,10 +91,6 @@ struct TrainingModeView: View {
                     saveActivity()
                 }
                 
-                Button("Salva in cloud") {
-                    saveInCloud()
-                }
-                
                 Button("Scarta", role: .cancel) {
                     discardActivity()
                 }
@@ -104,18 +100,23 @@ struct TrainingModeView: View {
             .alert("Sensori non disponibili", isPresented: $motionManager.sensorsUnavailable) {
                 Button("OK", role: .cancel) { }
             }
+            .alert("Errore nel salvataggio", isPresented: $firestoreManager.savingError) {
+                Button("OK", role: .cancel) { }
+            }
         }
     }
     
     func toggleRecording() {
         if !isRecording {
             isRecording.toggle()
+            startTime = Date()
             motionManager.startUpdates()
             if motionManager.sensorsUnavailable {
                 isRecording.toggle()
+                discardActivity()
                 return // Non modifica la UI se i sensori non sono disponibili
             }
-            startTime = Date()
+            
             buttonText = "Fine attività"
             buttonColor = .red
         } else {
@@ -129,16 +130,19 @@ struct TrainingModeView: View {
         }
     }
     
-    // Magari ste funzione le sposto in un file dedicato alla logica
-    
-    // TODO
     func saveActivity() {
-        print("Attività salvata")
-    }
-    
-    // TODO
-    func saveInCloud() {
-        print("Attività salvate in cloud")
+        guard let safeStartTime = startTime, let safeEndTime = endTime else { return }
+        
+        let activityToSave = Activity(
+            id: nil,
+            activityType: selezione,
+            startTime: safeStartTime,
+            endTime: safeEndTime,
+            accelerometerData: motionManager.accelerometerData,
+            gyroscopeData: motionManager.gyroscopeData
+        )
+        
+        firestoreManager.saveActivity(activityToSave)
     }
 
     func discardActivity() {
