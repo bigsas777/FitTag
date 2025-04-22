@@ -26,6 +26,7 @@ class FirestoreManager: ObservableObject {
         }
     }
     
+    // TODO: cambiare modalità fetching, questa è troppo pesaante
     func getActivities() async -> [ActivitySummary] {
         var tempActivity: Activity
         var summaries: [ActivitySummary] = []
