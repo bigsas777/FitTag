@@ -10,7 +10,7 @@ import CoreMotion
 
 class MotionManager: ObservableObject {
     private let motionManager = CMMotionManager()
-    private let updateInterval = 0.02 // 50 Hz
+    private let updateInterval = 0.1 // 10 Hz
 
     @Published var accelerometerData: [Sample] = []
     @Published var gyroscopeData: [Sample] = []
