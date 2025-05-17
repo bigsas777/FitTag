@@ -15,40 +15,33 @@ class FirestoreManager: ObservableObject {
     @Published var fetchingError = false
     
     func saveActivity(_ activity: Activity) {
-        var activityToSave = activity
-        let ref = db.collection("activities").document()
-        activityToSave.id = ref.documentID
+        var activityToSave = activity // variabile ausiliaria pk i parametri passati sono let e nn potrei assegnargli id
+        let activityRef = db.collection("activities").document()
+        activityToSave.id = activityRef.documentID
+        
+        let activitySummary = ActivitySummary(from: activityToSave)
         
         do {
-            try ref.setData(from: activityToSave)
+            try activityRef.setData(from: activityToSave)
+            try db.collection("activitySummaries").document().setData(from: activitySummary)
         } catch {
             savingError = true
         }
     }
     
-    // TODO: cambiare modalità fetching, questa è troppo pesaante
     func getActivities() async -> [ActivitySummary] {
-        var tempActivity: Activity
-        var summaries: [ActivitySummary] = []
-        
         do {
-            let querySnapshot = try await db.collection("activities")
+            let querySnapshot = try await db.collection("activitySummaries")
                 .order(by: "startTime", descending: false)
                 .getDocuments()
             
-            for document in querySnapshot.documents {
-                tempActivity = try document.data(as: Activity.self)
-                summaries.append(createSummary(tempActivity))
+            return try querySnapshot.documents.map {
+                try $0.data(as: ActivitySummary.self)
             }
         } catch {
             fetchingError = true
+            return []
         }
-        
-        return summaries
-    }
-    
-    func createSummary(_ activity: Activity) -> ActivitySummary {
-        return ActivitySummary(id: activity.id!, activityType: activity.activityType, startTime: activity.startTime, endTime: activity.endTime)
     }
 }
 
