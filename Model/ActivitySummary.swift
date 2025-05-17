@@ -13,3 +13,12 @@ struct ActivitySummary: Hashable, Codable, Identifiable {
     var startTime: Date
     var endTime: Date
 }
+
+extension ActivitySummary {
+    init(from activity: Activity) {
+        self.id = activity.id ?? UUID().uuidString
+        self.activityType = activity.activityType
+        self.startTime = activity.startTime
+        self.endTime = activity.endTime
+    }
+}
