@@ -17,6 +17,7 @@ struct ActivitySummaryView: View {
             case .walking: return [.green, .yellow]
             case .swimming: return [.teal, .blue]
             case .cycling: return [.yellow, .orange]
+            case .standing: return [.blue, .purple]
         }
     }
     
@@ -26,6 +27,7 @@ struct ActivitySummaryView: View {
             case .walking: return "figure.walk"
             case .swimming: return "figure.pool.swim"
             case .cycling: return "figure.outdoor.cycle"
+            case .standing: return "figure.stand"
         }
     }
     
@@ -97,5 +99,5 @@ struct ActivitySummaryView: View {
 }
 
 #Preview {
-    ActivitySummaryView(activitySummary: ActivitySummary(id: "Sus", activityType: ActivityType.cycling, startTime: Date(), endTime: Date() + 1265))
+    ActivitySummaryView(activitySummary: ActivitySummary(id: "Sus", activityType: ActivityType.standing, startTime: Date(), endTime: Date() + 1265))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrainingModeView: View {
-    @State private var selezione: ActivityType = .running
+    @State private var selezione: ActivityType = .standing
     @State private var startTime: Date?
     @State private var endTime: Date?
     
@@ -20,9 +20,6 @@ struct TrainingModeView: View {
     
     @StateObject private var motionManager = MotionManager()
     @StateObject private var firestoreManager = FirestoreManager()
-
-    
-    let activities = ["Corsa", "Camminata", "Nuoto", "Ciclismo"]
     
     var startTimeStr: String {
         startTime?.formatted(date: .omitted, time: .standard) ?? "00:00:00"
