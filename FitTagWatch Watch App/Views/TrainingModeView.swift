@@ -45,7 +45,7 @@ struct TrainingModeView: View {
                         Text(activity.rawValue.capitalized)
                     }
                 }
-                //.pickerStyle(.menu)
+                .pickerStyle(.wheel)
                 // .disabled(isRecording)
                 
                 // Orari
