@@ -12,7 +12,7 @@ struct TrainingModeView: View {
     @State private var startTime: Date?
     @State private var endTime: Date?
     
-    @State private var buttonText = "Registra attività"
+    @State private var buttonText = "Record activity"
     @State private var buttonColor = Color.green
     
     @State private var isRecording = false
@@ -35,13 +35,13 @@ struct TrainingModeView: View {
                 
                 // Picker Attività
                 HStack {
-                    Text("Attività:")
+                    Text("Activity:")
                         .font(.title2)
                         .fontWeight(.semibold)
                     
                     Spacer()
                     
-                    Picker("Seleziona un'attività", selection: $selezione) {
+                    Picker("Select activity", selection: $selezione) {
                         ForEach(ActivityType.allCases, id: \.self) { activity in
                             Text(activity.name).tag(activity)
                         }
@@ -82,22 +82,22 @@ struct TrainingModeView: View {
             .padding()
             .navigationTitle("Training Mode")
             
-            .confirmationDialog("Vuoi salvare questa attività?", isPresented: $showSaveDialog) {
+            .confirmationDialog("Do you want to save this activity?", isPresented: $showSaveDialog) {
                 
-                Button("Salva") {
+                Button("Save") {
                     saveActivity()
                 }
                 
-                Button("Scarta", role: .cancel) {
+                Button("Discard", role: .cancel) {
                     discardActivity()
                 }
             } message: {
-                Text("Vuoi salvare questa attività?")
+                Text("Do you want to save this activity?")
             }
-            .alert("Sensori non disponibili", isPresented: $motionManager.sensorsUnavailable) {
+            .alert("Sensors not available", isPresented: $motionManager.sensorsUnavailable) {
                 Button("OK", role: .cancel) { }
             }
-            .alert("Errore nel salvataggio", isPresented: $firestoreManager.savingError) {
+            .alert("Saving error", isPresented: $firestoreManager.savingError) {
                 Button("OK", role: .cancel) { }
             }
         }
@@ -114,14 +114,14 @@ struct TrainingModeView: View {
                 return // Non modifica la UI se i sensori non sono disponibili
             }
             
-            buttonText = "Fine attività"
+            buttonText = "Stop recording"
             buttonColor = .red
         } else {
             isRecording.toggle()
             motionManager.stopUpdates()
             endTime = Date()
             
-            buttonText = "Registra attività"
+            buttonText = "Record activity"
             buttonColor = .green
             showSaveDialog = true
         }
