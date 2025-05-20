@@ -23,9 +23,6 @@ struct ContentView: View {
             
             LiveDetectionView()
                 .tag(Tab.LiveDetection)
-            
-            RecordingsView()
-                .tag(Tab.Recordings)
         }
     }
 }

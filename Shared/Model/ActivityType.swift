@@ -8,7 +8,7 @@
 import Foundation
 
 enum ActivityType: String, Identifiable, Codable, CaseIterable, Hashable {
-    case running, walking, swimming, cycling, standing
+    case standing, walking, running, swimming, cycling
     
     var id: Self { self }
 }
