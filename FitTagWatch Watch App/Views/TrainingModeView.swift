@@ -103,7 +103,7 @@ struct TrainingModeView: View {
                 gyroscopeData: motionManager.gyroscopeData
             )
             
-            // firestoreManager.saveActivity(activityToSave)
+            WatchConnectivityManager.shared.sendActivity(activityToSave)
         }
 
         func discardActivity() {
