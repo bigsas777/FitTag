@@ -14,6 +14,7 @@
 		886261672DB65C6200513757 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 886261662DB65C6200513757 /* FirebaseAppDistribution-Beta */; };
 		886261892DB65EF300513757 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 886261882DB65EF300513757 /* FirebaseFirestore */; };
 		88684E4C2DD8F37800DD98A4 /* FitTagWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		88ED4BBF2DE1560900D0C471 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88ED4BBF2DE1560900D0C471 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,7 @@
 			);
 			name = "FitTagWatch Watch App";
 			packageProductDependencies = (
+				88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */,
 			);
 			productName = "FitTagWatch Watch App";
 			productReference = 88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */;
@@ -586,6 +589,11 @@
 			productName = "FirebaseAppDistribution-Beta";
 		};
 		886261882DB65EF300513757 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8862615D2DB659CE00513757 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8862615D2DB659CE00513757 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
