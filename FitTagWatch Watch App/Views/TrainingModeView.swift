@@ -55,16 +55,10 @@ struct TrainingModeView: View {
                 Button("Discard", role: .cancel) {
                     discardActivity()
                 }
-            } message: {
-                Text("Do you want to save this activity?")
             }
-            .alert("Sensors not available", isPresented: $motionManager.sensorsUnavailable) {
+            .alert("Device Motion not available", isPresented: $motionManager.sensorsUnavailable) {
                 Button("OK", role: .cancel) { }
             }
-            
-            /* .alert("Saving error", isPresented: /*$firestoreManager.savingError*/) {
-                Button("OK", role: .cancel) { }
-            } */
         }
         
         func toggleRecording() {
