@@ -55,11 +55,28 @@
 			);
 			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
 		};
+		88EF58462DE1DD1A00F3F241 /* Exceptions for "FitTag" folder in "FitTag" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 88A1F8BA2DB3ADA700F72E6C /* FitTag */;
+		};
+		88EF58472DE1DD1D00F3F241 /* Exceptions for "FitTagWatch Watch App" folder in "FitTagWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		88684E432DD8F37700DD98A4 /* FitTagWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				88EF58472DE1DD1D00F3F241 /* Exceptions for "FitTagWatch Watch App" folder in "FitTagWatch Watch App" target */,
+			);
 			path = "FitTagWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -73,6 +90,9 @@
 		};
 		88A1F8BD2DB3ADA700F72E6C /* FitTag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				88EF58462DE1DD1A00F3F241 /* Exceptions for "FitTag" folder in "FitTag" target */,
+			);
 			path = FitTag;
 			sourceTree = "<group>";
 		};
@@ -282,6 +302,7 @@
 				DEVELOPMENT_TEAM = NXLNYV633U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/FitTagWatch Watch App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -312,6 +333,7 @@
 				DEVELOPMENT_TEAM = NXLNYV633U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/FitTagWatch Watch App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -463,7 +485,7 @@
 				DEVELOPMENT_TEAM = NXLNYV633U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FitTag/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FitTag/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FitTag;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
@@ -496,7 +518,7 @@
 				DEVELOPMENT_TEAM = NXLNYV633U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FitTag/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FitTag/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FitTag;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
