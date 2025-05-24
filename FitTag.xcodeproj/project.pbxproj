@@ -46,17 +46,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8862615A2DB6523100513757 /* Exceptions for "FitTag" folder in "FitTag" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 88A1F8BA2DB3ADA700F72E6C /* FitTag */;
-		};
 		88684E672DD8FF6400DD98A4 /* Exceptions for "Shared" folder in "FitTagWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Model/ActivityTypeDisplay.swift,
+				Services/FirestoreManager.swift,
 			);
 			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
 		};
@@ -78,9 +72,6 @@
 		};
 		88A1F8BD2DB3ADA700F72E6C /* FitTag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				8862615A2DB6523100513757 /* Exceptions for "FitTag" folder in "FitTag" target */,
-			);
 			path = FitTag;
 			sourceTree = "<group>";
 		};
@@ -289,6 +280,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.zorzi.FitTag;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,6 +310,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.zorzi.FitTag;
 				LD_RUNPATH_SEARCH_PATHS = (

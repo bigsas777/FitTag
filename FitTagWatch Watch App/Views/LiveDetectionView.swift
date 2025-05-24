@@ -18,12 +18,12 @@ struct LiveDetectionView: View {
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             ))
-                        .frame(width: 160, height: 160) // Grandezza del cerchio
+                        .frame(width: 140, height: 140) // Grandezza del cerchio
 
                     Image(systemName: "figure.pool.swim")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 80, height: 80) // Grandezza dell'icona
+                        .frame(width: 70, height: 70) // Grandezza dell'icona
                         .foregroundColor(.white)
                 }
                 
