@@ -21,6 +21,7 @@
 - Swift & SwiftUI
 - watchOS & iOS
 - CoreMotion
+- WatchConnectivity
 - Firebase Firestore
 
 ## 🚧 Status
