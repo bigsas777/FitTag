@@ -19,10 +19,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct FitTagApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    init() {
-        let _ = WatchConnectivityManager.shared
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

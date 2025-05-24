@@ -36,6 +36,9 @@ struct ContentView: View {
                 }
                 .tag(Tab.Recordings)
         }
+        .onAppear() {
+            let _ = WatchConnectivityManager.shared
+        }
     }
 }
 
