@@ -96,8 +96,8 @@ struct TrainingModeView: View {
                 accelerometerData: motionManager.accelerometerData,
                 gyroscopeData: motionManager.gyroscopeData
             )
-            
-            WatchConnectivityManager.shared.sendActivity(activityToSave)
+            let saveTimeStamp = Date().ISO8601Format()
+            WatchConnectivityManager.shared.sendActivity(activityToSave, timestamp: saveTimeStamp)
         }
 
         func discardActivity() {

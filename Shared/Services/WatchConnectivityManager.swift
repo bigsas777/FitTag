@@ -19,29 +19,36 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
     
     @Published var savedActivity: [String] = []
     
-    override private init() {
+    /*override private init() {
         super.init()
-        
-        guard WCSession.isSupported() else {
+    }*/
+    
+    #if os(watchOS)
+    func sendActivity(_ activity: Activity, timestamp: String) {
+        guard WCSession.default.isReachable || WCSession.default.activationState == .activated else {
+            print("WCSession non attivo o non raggiungibile")
             return
         }
         
-        WCSession.default.delegate = self
-        WCSession.default.activate()
-    }
-    
-    func sendActivity(_ activity: Activity) {
         do {
+            // Encoding JSON
             let data = try JSONEncoder().encode(activity)
-            let userInfo: [String: Any] = ["activity": data]
-            WCSession.default.transferUserInfo(userInfo)
+            
+            // Salvo come JSON temporaneo
+            let fm = FileManager.default
+            let activityPath = fm.temporaryDirectory.appendingPathComponent("activity-\(timestamp).json")
+            guard fm.createFile(atPath: activityPath.path(), contents: data, attributes: nil) else {
+                print("Errore nel salvataggio del file")
+                return
+            }
         } catch {
             print("Errore durante l'encoding dell'activity: \(error)")
         }
     }
+    #endif
     
     // Ricezione attività
-    #if os(iOS)
+    #if os(iOS) // TODO: modificare ricezione per i files
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         if let data = userInfo["activity"] as? Data {
             do {
