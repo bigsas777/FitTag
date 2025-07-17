@@ -19,17 +19,12 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
     
     @Published var savedActivity: [String] = []
     
-    /*override private init() {
+    override private init() {
         super.init()
-    }*/
+    }
     
     #if os(watchOS)
     func sendActivity(_ activity: Activity, timestamp: String) {
-        guard WCSession.default.isReachable || WCSession.default.activationState == .activated else {
-            print("WCSession non attivo o non raggiungibile")
-            return
-        }
-        
         do {
             // Encoding JSON
             let data = try JSONEncoder().encode(activity)
@@ -37,10 +32,8 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
             // Salvo come JSON temporaneo
             let fm = FileManager.default
             let activityPath = fm.temporaryDirectory.appendingPathComponent("activity-\(timestamp).json")
-            guard fm.createFile(atPath: activityPath.path(), contents: data, attributes: nil) else {
-                print("Errore nel salvataggio del file")
-                return
-            }
+            
+            try data.write(to: activityPath)
             
             // Invio del file all'iPhone
             let transfer = WCSession.default.transferFile(activityPath, metadata: nil)
