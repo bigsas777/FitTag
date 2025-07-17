@@ -14,7 +14,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
     static let shared = WatchConnectivityManager()
     
     #if os(iOS)
-    private let firestoreManager = FirestoreManager()
+    private lazy var firestoreManager = FirestoreManager()
     #endif
     
     @Published var savedActivity: [String] = []
@@ -36,7 +36,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
             try data.write(to: activityPath)
             
             // Invio del file all'iPhone
-            let transfer = WCSession.default.transferFile(activityPath, metadata: nil)
+            WCSession.default.transferFile(activityPath, metadata: nil)
             
         } catch {
             print("Errore durante l'encoding dell'activity: \(error)")
