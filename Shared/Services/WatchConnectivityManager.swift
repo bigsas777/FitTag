@@ -52,17 +52,18 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
     #endif
     
     // Ricezione attività
-    #if os(iOS) // TODO: modificare ricezione per i files
-    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
-        if let data = userInfo["activity"] as? Data {
-            do {
-                let activity = try JSONDecoder().decode(Activity.self, from: data)
-                DispatchQueue.main.async {
-                    self.firestoreManager.saveActivity(activity)
-                }
-            } catch {
-                print("Errore nel decoding dell'activity: \(error)")
+    #if os(iOS)
+    func session(_ session: WCSession, didReceive file: WCSessionFile) {
+        let url = file.fileURL
+        do {
+            let data = try Data(contentsOf: url)
+            let activity = try JSONDecoder().decode(Activity.self, from: data)
+            DispatchQueue.main.async {
+                self.firestoreManager.saveActivity(activity)
             }
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            print("Errore nella lettura, decodifica o rimozione del file: \(error)")
         }
     }
     #endif
