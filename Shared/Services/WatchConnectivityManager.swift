@@ -41,6 +41,10 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
                 print("Errore nel salvataggio del file")
                 return
             }
+            
+            // Invio del file all'iPhone
+            let transfer = WCSession.default.transferFile(activityPath, metadata: nil)
+            
         } catch {
             print("Errore durante l'encoding dell'activity: \(error)")
         }
