@@ -8,7 +8,6 @@
 import SwiftUI
 import FirebaseCore
 import WatchConnectivity
-import HealthKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -26,10 +25,6 @@ struct FitTagApp: App {
             let session = WCSession.default
             session.delegate = WatchConnectivityManager.shared
             session.activate()
-        }
-        
-        if HKHealthStore.isHealthDataAvailable() {
-            let healthStore = HKHealthStore()
         }
     }
     
