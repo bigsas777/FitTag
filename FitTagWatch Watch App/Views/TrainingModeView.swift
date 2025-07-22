@@ -98,6 +98,8 @@ struct TrainingModeView: View {
             )
             let saveTimeStamp = Date().ISO8601Format()
             WatchConnectivityManager.shared.sendActivity(activityToSave, timestamp: saveTimeStamp)
+            
+            discardActivity()
         }
 
         func discardActivity() {

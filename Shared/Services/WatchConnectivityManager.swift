@@ -54,9 +54,14 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
             DispatchQueue.main.async {
                 self.firestoreManager.saveActivity(activity)
             }
+        } catch {
+            print("Errore nella lettura o decodifica del file: \(error)")
+        }
+        
+        do {
             try FileManager.default.removeItem(at: url)
         } catch {
-            print("Errore nella lettura, decodifica o rimozione del file: \(error)")
+            print("Errore nella rimozione del file: \(error)")
         }
     }
     #endif

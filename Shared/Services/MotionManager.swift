@@ -10,9 +10,7 @@ import CoreMotion
 
 class MotionManager: ObservableObject {
     private let motionManager = CMMotionManager()
-    private let updateInterval = 0.1 // 10 Hz
-    
-    private var timer: Timer?
+    private let updateInterval = 1.0 / 10.0 // 10 Hz
 
     @Published var accelerometerData: [Sample] = []
     @Published var gyroscopeData: [Sample] = []
@@ -20,68 +18,36 @@ class MotionManager: ObservableObject {
     @Published var sensorsUnavailable = false
 
     func startUpdates() {
-        /*motionManager.isAccelerometerAvailable, motionManager.isGyroAvailable*/
         guard motionManager.isDeviceMotionAvailable else {
             sensorsUnavailable = true
             return
         }
 
-        /* motionManager.accelerometerUpdateInterval = updateInterval
-        motionManager.gyroUpdateInterval = updateInterval */
         motionManager.deviceMotionUpdateInterval = updateInterval
         
-        motionManager.startDeviceMotionUpdates()
-        
-        self.timer = Timer(fire: Date(), interval: updateInterval, repeats: true, block: {
-            (tiemr) in
-            if let data = self.motionManager.deviceMotion
-                {
-                let sampleAccel = Sample(
-                    timeStamp: Date(),
-                    x: Float(data.userAcceleration.x),
-                    y: Float(data.userAcceleration.y),
-                    z: Float(data.userAcceleration.z)
-                )
-                self.accelerometerData.append(sampleAccel)
-                
-                let sampleGyro = Sample(
-                    timeStamp: Date(),
-                    x: Float(data.rotationRate.x),
-                    y: Float(data.rotationRate.y),
-                    z: Float(data.rotationRate.z)
-                )
-                self.gyroscopeData.append(sampleGyro)
-            }
-        })
-        
-        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.default)
-
-        /*motionManager.startAccelerometerUpdates(to: .main) { [weak self] data, _ in
+        motionManager.startDeviceMotionUpdates(to: OperationQueue()) { [weak self] data, _ in
             guard let self = self, let data = data else { return }
-            let sample = Sample(
+
+            let sampleAccel = Sample(
                 timeStamp: Date(),
-                x: Float(data.acceleration.x),
-                y: Float(data.acceleration.y),
-                z: Float(data.acceleration.z)
+                x: Float(data.userAcceleration.x),
+                y: Float(data.userAcceleration.y),
+                z: Float(data.userAcceleration.z)
             )
-            self.accelerometerData.append(sample)
-        }
+            self.accelerometerData.append(sampleAccel)
 
-        motionManager.startGyroUpdates(to: .main) { [weak self] data, _ in
-            guard let self = self, let data = data else { return }
-            let sample = Sample(
+            let sampleGyro = Sample(
                 timeStamp: Date(),
                 x: Float(data.rotationRate.x),
                 y: Float(data.rotationRate.y),
                 z: Float(data.rotationRate.z)
             )
-            self.gyroscopeData.append(sample)
-        }*/
+            self.gyroscopeData.append(sampleGyro)
+        }
     }
 
     func stopUpdates() {
-        motionManager.stopAccelerometerUpdates()
-        motionManager.stopGyroUpdates()
+        motionManager.stopDeviceMotionUpdates()
     }
 
     func resetData() {

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>accelerometer</string>
-		<string>gyroscope</string>
-	</array>
-	<key>NSMotionUsageDescription</key>
-	<string>This app uses gyroscope and accelerometer in order to record and recognize some physical activities.</string>
-</dict>
+<dict/>
 </plist>

@@ -22,11 +22,11 @@ struct TrainingModeView: View {
     @StateObject private var firestoreManager = FirestoreManager()
     
     var startTimeStr: String {
-        startTime?.formatted(date: .omitted, time: .standard) ?? "00:00:00"
+        startTime?.formatted(date: .omitted, time: .standard) ?? "--:--:--"
     }
     
     var endTimeStr: String {
-        endTime?.formatted(date: .omitted, time: .standard) ?? "00:00:00"
+        endTime?.formatted(date: .omitted, time: .standard) ?? "--:--:--"
     }
     
     var body: some View {
@@ -140,6 +140,8 @@ struct TrainingModeView: View {
         )
         
         firestoreManager.saveActivity(activityToSave)
+        
+        discardActivity()
     }
 
     func discardActivity() {
