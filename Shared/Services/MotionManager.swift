@@ -17,10 +17,6 @@ class MotionManager: ObservableObject {
     private let healthStore: HKHealthStore?
     private var session: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
-    #else
-    private let healthStore: HKHealthStore? = nil
-    private var session: HKWorkoutSession? = nil
-    private var builder: HKLiveWorkoutBuilder? = nil
     #endif
 
     @Published var accelerometerData: [Sample] = []
