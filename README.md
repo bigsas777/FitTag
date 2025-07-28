@@ -27,5 +27,4 @@
 ## 🚧 Status
 
 FitTag is currently under development. More features and improvements will be added soon, including:
-- Model integration for real-time activity recognition
-- Optimize database queries for better performance and scalability
+- ML Model integration for real-time activity recognition
