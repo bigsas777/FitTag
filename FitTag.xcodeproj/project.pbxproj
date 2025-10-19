@@ -13,19 +13,7 @@
 		886261652DB65C6200513757 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 886261642DB65C6200513757 /* FirebaseAppCheck */; };
 		886261672DB65C6200513757 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 886261662DB65C6200513757 /* FirebaseAppDistribution-Beta */; };
 		886261892DB65EF300513757 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 886261882DB65EF300513757 /* FirebaseFirestore */; };
-		88684E4C2DD8F37800DD98A4 /* FitTagWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		88ED4BBF2DE1560900D0C471 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		88684E4A2DD8F37800DD98A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 88A1F8B32DB3ADA700F72E6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 88684E412DD8F37700DD98A4;
-			remoteInfo = "FitTagWatch Watch App";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		88AB182F2DD8F0EA005ED318 /* Embed Watch Content */ = {
@@ -34,7 +22,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				88684E4C2DD8F37800DD98A4 /* FitTagWatch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,19 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitTagWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A1F8BB2DB3ADA700F72E6C /* FitTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		88684E672DD8FF6400DD98A4 /* Exceptions for "Shared" folder in "FitTagWatch Watch App" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Model/ActivityTypeDisplay.swift,
-				Services/FirestoreManager.swift,
-			);
-			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
-		};
 		88EF58462DE1DD1A00F3F241 /* Exceptions for "FitTag" folder in "FitTag" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -62,29 +40,11 @@
 			);
 			target = 88A1F8BA2DB3ADA700F72E6C /* FitTag */;
 		};
-		88EF58472DE1DD1D00F3F241 /* Exceptions for "FitTagWatch Watch App" folder in "FitTagWatch Watch App" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		88684E432DD8F37700DD98A4 /* FitTagWatch Watch App */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				88EF58472DE1DD1D00F3F241 /* Exceptions for "FitTagWatch Watch App" folder in "FitTagWatch Watch App" target */,
-			);
-			path = "FitTagWatch Watch App";
-			sourceTree = "<group>";
-		};
 		88684E642DD8FE2200DD98A4 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				88684E672DD8FF6400DD98A4 /* Exceptions for "Shared" folder in "FitTagWatch Watch App" target */,
-			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -99,14 +59,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		88684E3F2DD8F37700DD98A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				88ED4BBF2DE1560900D0C471 /* FirebaseFirestore in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		88A1F8B82DB3ADA700F72E6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,7 +87,6 @@
 			children = (
 				88684E642DD8FE2200DD98A4 /* Shared */,
 				88A1F8BD2DB3ADA700F72E6C /* FitTag */,
-				88684E432DD8F37700DD98A4 /* FitTagWatch Watch App */,
 				886261872DB65EF300513757 /* Frameworks */,
 				88A1F8BC2DB3ADA700F72E6C /* Products */,
 			);
@@ -145,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				88A1F8BB2DB3ADA700F72E6C /* FitTag.app */,
-				88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,30 +103,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 88684E4F2DD8F37800DD98A4 /* Build configuration list for PBXNativeTarget "FitTagWatch Watch App" */;
-			buildPhases = (
-				88684E3E2DD8F37700DD98A4 /* Sources */,
-				88684E3F2DD8F37700DD98A4 /* Frameworks */,
-				88684E402DD8F37700DD98A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				88684E432DD8F37700DD98A4 /* FitTagWatch Watch App */,
-				88684E642DD8FE2200DD98A4 /* Shared */,
-			);
-			name = "FitTagWatch Watch App";
-			packageProductDependencies = (
-				88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */,
-			);
-			productName = "FitTagWatch Watch App";
-			productReference = 88684E422DD8F37700DD98A4 /* FitTagWatch Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		88A1F8BA2DB3ADA700F72E6C /* FitTag */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88A1F8C62DB3ADAA00F72E6C /* Build configuration list for PBXNativeTarget "FitTag" */;
@@ -189,7 +115,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				88684E4B2DD8F37800DD98A4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				88684E642DD8FE2200DD98A4 /* Shared */,
@@ -218,9 +143,6 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					88684E412DD8F37700DD98A4 = {
-						CreatedOnToolsVersion = 16.3;
-					};
 					88A1F8BA2DB3ADA700F72E6C = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -244,19 +166,11 @@
 			projectRoot = "";
 			targets = (
 				88A1F8BA2DB3ADA700F72E6C /* FitTag */,
-				88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		88684E402DD8F37700DD98A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		88A1F8B92DB3ADA700F72E6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,13 +181,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		88684E3E2DD8F37700DD98A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		88A1F8B72DB3ADA700F72E6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,81 +190,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		88684E4B2DD8F37800DD98A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 88684E412DD8F37700DD98A4 /* FitTagWatch Watch App */;
-			targetProxy = 88684E4A2DD8F37800DD98A4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		88684E4D2DD8F37800DD98A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FitTagWatch Watch App/FitTagWatch Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NXLNYV633U;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/FitTagWatch Watch App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
-				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope healthkit";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.zorzi.FitTag;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zorzi.FitTag.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.6;
-			};
-			name = Debug;
-		};
-		88684E4E2DD8F37800DD98A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FitTagWatch Watch App/FitTagWatch Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NXLNYV633U;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/FitTagWatch Watch App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = FitTagWatch;
-				INFOPLIST_KEY_NSMotionUsageDescription = "This app uses gyroscope and accelerometer in order to record and recognize some physical activities.";
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope healthkit";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.zorzi.FitTag;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zorzi.FitTag.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.6;
-			};
-			name = Release;
-		};
 		88A1F8C42DB3ADAA00F72E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,15 +385,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88684E4F2DD8F37800DD98A4 /* Build configuration list for PBXNativeTarget "FitTagWatch Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				88684E4D2DD8F37800DD98A4 /* Debug */,
-				88684E4E2DD8F37800DD98A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		88A1F8B62DB3ADA700F72E6C /* Build configuration list for PBXProject "FitTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -619,11 +443,6 @@
 			productName = "FirebaseAppDistribution-Beta";
 		};
 		886261882DB65EF300513757 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8862615D2DB659CE00513757 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		88ED4BBE2DE1560900D0C471 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8862615D2DB659CE00513757 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
