@@ -4,7 +4,7 @@
 ![Swift](https://img.shields.io/badge/language-Swift-orange.svg)
 ![Firebase](https://img.shields.io/badge/backend-Firebase-yellow.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
+![Status](https://img.shields.io/badge/status-completed-brightgreen.svg)
 
 **FitTag** is an iOS app designed to collect and label motion sensor data (accelerometer and gyroscope) during physical activities. The recorded data is intended for training machine learning models to recognize activity patterns such as walking, running, cycling, or swimming in real time.
 
