@@ -10,7 +10,6 @@ import SwiftUI
 struct ActivitySummaryView: View {
     var activitySummary: ActivitySummary
     
-    // TODO: Cambiare colori
     var colors: [Color] {
         switch activitySummary.activityType {
             case .running: return [.red, .orange]
