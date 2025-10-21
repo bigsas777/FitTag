@@ -55,7 +55,7 @@ struct LiveDetectionView: View {
                         .foregroundColor(.white)
                 }
                 
-                Text(outputActivity)
+                Text(outputActivity.capitalized)
                     .font(.title2)
                     .fontWeight(.medium)
             }
