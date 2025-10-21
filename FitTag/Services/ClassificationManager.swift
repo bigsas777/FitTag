@@ -19,21 +19,22 @@ final class ClassificationManager: ObservableObject {
             return "unknown"
         }
 
-        let x_mean_accel = computeMean(data: accelData, axis: 0)
-        let y_mean_accel = computeMean(data: accelData, axis: 1)
-        let z_mean_accel = computeMean(data: accelData, axis: 2)
+        // Calculating features
+        let x_mean_accel = meanForAxis(data: accelData, axis: 0)
+        let y_mean_accel = meanForAxis(data: accelData, axis: 1)
+        let z_mean_accel = meanForAxis(data: accelData, axis: 2)
 
-        let x_std_accel = computeStd(data: accelData, axis: 0)
-        let y_std_accel = computeStd(data: accelData, axis: 1)
-        let z_std_accel = computeStd(data: accelData, axis: 2)
+        let x_std_accel = stdForAxis(data: accelData, axis: 0)
+        let y_std_accel = stdForAxis(data: accelData, axis: 1)
+        let z_std_accel = stdForAxis(data: accelData, axis: 2)
 
-        let x_mean_gyro = computeMean(data: gyroData, axis: 0)
-        let y_mean_gyro = computeMean(data: gyroData, axis: 1)
-        let z_mean_gyro = computeMean(data: gyroData, axis: 2)
+        let x_mean_gyro = meanForAxis(data: gyroData, axis: 0)
+        let y_mean_gyro = meanForAxis(data: gyroData, axis: 1)
+        let z_mean_gyro = meanForAxis(data: gyroData, axis: 2)
 
-        let x_std_gyro = computeStd(data: gyroData, axis: 0)
-        let y_std_gyro = computeStd(data: gyroData, axis: 1)
-        let z_std_gyro = computeStd(data: gyroData, axis: 2)
+        let x_std_gyro = stdForAxis(data: gyroData, axis: 0)
+        let y_std_gyro = stdForAxis(data: gyroData, axis: 1)
+        let z_std_gyro = stdForAxis(data: gyroData, axis: 2)
 
         if let prediction = try? classifier.prediction(
             x_mean_accel: x_mean_accel,
@@ -56,6 +57,7 @@ final class ClassificationManager: ObservableObject {
 
     }
 
+    // Extracts the values of a specific axis (x, y, or z) from an array of `Sample` objects.
     private func extractAxis(_ data: [Sample], axis: Int) -> [Double] {
         switch axis {
         case 0: return data.map { Double($0.x) }
@@ -65,13 +67,15 @@ final class ClassificationManager: ObservableObject {
         }
     }
 
-    private func computeMean(data: [Sample], axis: Int) -> Double {
+    // Calculates the arithmetic mean of the specified axis values from an array of Sample objects.
+    private func meanForAxis(data: [Sample], axis: Int) -> Double {
         let values = extractAxis(data, axis: axis)
         guard !values.isEmpty else { return 0.0 }
         return values.reduce(0, +) / Double(values.count)
     }
 
-    private func computeStd(data: [Sample], axis: Int) -> Double {
+    // Calculates the standard deviation of the specified axis values from an array of Sample objects.
+    private func stdForAxis(data: [Sample], axis: Int) -> Double {
         let values = extractAxis(data, axis: axis)
         guard !values.isEmpty else { return 0.0 }
         let mean = values.reduce(0, +) / Double(values.count)

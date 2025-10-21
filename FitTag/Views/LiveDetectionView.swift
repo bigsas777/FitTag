@@ -46,12 +46,12 @@ struct LiveDetectionView: View {
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             ))
-                        .frame(width: 200, height: 200) // Circle's size
+                        .frame(width: 200, height: 200) // Circle size
 
                     Image(systemName: icon)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 100, height: 100) // Icon's size
+                        .frame(width: 100, height: 100) // Icon size
                         .foregroundColor(.white)
                 }
                 
@@ -77,7 +77,6 @@ struct LiveDetectionView: View {
                 return
             }
             
-            
             outputActivity = classificationManager.getClassification(accelData: motionManager.accelerometerData, gyroData: motionManager.gyroscopeData)
 
             motionManager.resetData()
@@ -86,5 +85,5 @@ struct LiveDetectionView: View {
 }
 
 #Preview {
-    // LiveDetectionView()
+    LiveDetectionView()
 }

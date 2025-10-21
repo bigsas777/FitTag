@@ -20,14 +20,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct FitTagApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    init() {
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = WatchConnectivityManager.shared
-            session.activate()
-        }
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

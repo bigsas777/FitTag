@@ -15,15 +15,17 @@ class FirestoreManager: ObservableObject {
     @Published var fetchingError = false
     
     func saveActivity(_ activity: Activity) {
-        var activityToSave = activity // variabile ausiliaria pk i parametri passati sono let e nn potrei assegnargli id
         let activityRef = db.collection("activities").document()
+        let summaryRef = db.collection("activitySummaries").document()
+        
+        var activityToSave = activity // temp var since function parameters are constants (let) and cannot be modified
         activityToSave.id = activityRef.documentID
         
-        let activitySummary = ActivitySummary(from: activityToSave)
+        let activitySummary = ActivitySummary(from: activityToSave) // creating summary to save for the activity
         
         do {
             try activityRef.setData(from: activityToSave)
-            try db.collection("activitySummaries").document().setData(from: activitySummary)
+            try summaryRef.setData(from: activitySummary)
         } catch {
             savingError = true
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrainingModeView: View {
-    @State private var selezione: ActivityType = .standing
+    @State private var selection: ActivityType = .standing
     @State private var startTime: Date?
     @State private var endTime: Date?
     
@@ -33,7 +33,7 @@ struct TrainingModeView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 20) {
                 
-                // Picker Attività
+                // Activity picker
                 HStack {
                     Text("Activity:")
                         .font(.title2)
@@ -41,7 +41,7 @@ struct TrainingModeView: View {
                     
                     Spacer()
                     
-                    Picker("Select activity", selection: $selezione) {
+                    Picker("Select activity", selection: $selection) {
                         ForEach(ActivityType.allCases, id: \.self) { activity in
                             Text(activity.name).tag(activity)
                         }
@@ -50,7 +50,7 @@ struct TrainingModeView: View {
                     .disabled(isRecording)
                 }
                 
-                // Orari
+                // Times
                 HStack {
                     Text("Start time:")
                         .font(.title2)
@@ -69,7 +69,7 @@ struct TrainingModeView: View {
                 
                 Spacer()
                 
-                // Bottone di registrazione
+                // Record button
                 Button(action: toggleRecording) {
                     Text(buttonText)
                         .frame(maxWidth: .infinity)
@@ -132,7 +132,7 @@ struct TrainingModeView: View {
         
         let activityToSave = Activity(
             id: nil,
-            activityType: selezione,
+            activityType: selection,
             startTime: safeStartTime,
             endTime: safeEndTime,
             accelerometerData: motionManager.accelerometerData,

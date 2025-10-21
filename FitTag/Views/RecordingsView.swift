@@ -24,7 +24,7 @@ struct RecordingsView: View {
                     activitySummaries = summaries
                 }
             }
-            .alert("Errore nel download delle tue registrazioni", isPresented: $firestoreManager.fetchingError) {
+            .alert("An error occurred while downloading your activities", isPresented: $firestoreManager.fetchingError) {
                 Button("OK", role: .cancel) { }
             }
         }

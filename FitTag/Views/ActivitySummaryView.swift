@@ -34,11 +34,11 @@ struct ActivitySummaryView: View {
         let duration = activitySummary.endTime.timeIntervalSince(activitySummary.startTime)
         
         if duration < 60 {
-            // Mostra solo i secondi
+            // Shows only seconds
             let seconds = Int(duration)
             return "\(seconds) sec"
         } else {
-            // Mostra mm:ss
+            // Shows mm:ss
             let formatter = DateComponentsFormatter()
             formatter.allowedUnits = [.minute, .second]
             formatter.unitsStyle = .positional
@@ -69,12 +69,12 @@ struct ActivitySummaryView: View {
             }
 
             VStack(alignment: .leading, spacing: 6) {
-                // Titolo attività
+                // Activity tilte
                 Text(activitySummary.activityType.name)
                     .font(.headline)
                     .fontWeight(.bold)
 
-                // Info dettagliate
+                // Activity details (time and duration)
                 HStack(spacing: 15) {
                     HStack(spacing: 5) {
                         Image(systemName: "clock")
