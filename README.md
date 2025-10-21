@@ -23,3 +23,10 @@
 - CoreMotion
 - Firebase Firestore
 - Python & scikit-learn (Decision Tree Classifier for activity recognition)
+
+## 🚀 Future Improvements
+
+- **Optimize Machine Learning Model**: Reduce the number of features used by the Decision Tree Classifier, keeping only the most relevant features or using PCA.  
+- **Code Refactoring**: Rewrite and restructure the Swift code to follow professional best practices, improving readability, maintainability, and scalability. Currently, the code reflects a learning phase and could benefit from experience-based optimization.  
+- **Extensibility**: Prepare the app to support additional activity types.  
+- **Error Handling and Logging**: Improve handling of errors and provide detailed logs for debugging.  
