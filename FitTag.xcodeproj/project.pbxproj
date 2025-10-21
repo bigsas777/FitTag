@@ -43,11 +43,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		88684E642DD8FE2200DD98A4 /* Shared */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		88A1F8BD2DB3ADA700F72E6C /* FitTag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -85,7 +80,6 @@
 		88A1F8B22DB3ADA700F72E6C = {
 			isa = PBXGroup;
 			children = (
-				88684E642DD8FE2200DD98A4 /* Shared */,
 				88A1F8BD2DB3ADA700F72E6C /* FitTag */,
 				886261872DB65EF300513757 /* Frameworks */,
 				88A1F8BC2DB3ADA700F72E6C /* Products */,
@@ -117,7 +111,6 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				88684E642DD8FE2200DD98A4 /* Shared */,
 				88A1F8BD2DB3ADA700F72E6C /* FitTag */,
 			);
 			name = FitTag;
